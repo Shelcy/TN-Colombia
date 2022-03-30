@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TN Colombia - Prueba</title>
+    <title>TN - Colombia</title>
 
 
     <!-- FontAwesome -->
@@ -16,6 +16,9 @@
 
 
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+  
+
 </head>
 
 <body>
@@ -24,9 +27,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -50,13 +51,12 @@
 
             <!-- Form data-->
             <div class="col col-lg-6 col-xl-5 p-4">
-                <form action="" class="needs-validation" novalidate>
+                <form method="post" class="needs-validation" novalidate>
 
                     <div class="row g-3">
                         <div class="">
                             <label for="name" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="name" name="name"
-                                placeholder="Ingrese su nombre" pattern="[a-zA-ZÀ-ÿ]{3,100}" required>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre" pattern="[a-zA-ZÀ-ÿ]{3,100}" required>
                             <div class="invalid-feedback">
                                 <p class="">Recuerde no ingresar números, simbolos o espacios.</p>
                             </div>
@@ -64,8 +64,7 @@
 
                         <div class="">
                             <label for="lastName" class="form-label">Apellido</label>
-                            <input type="text" class="form-control" id="name" name="lastName"
-                                placeholder="Ingrese su Apellido" pattern="[a-zA-ZÀ-ÿ]{3,100}" required>
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Ingrese su Apellido" pattern="[a-zA-ZÀ-ÿ]{3,100}" required>
                             <div class="invalid-feedback">
                                 <p class="">Recuerde no ingresar números, simbolos o espacios.</p>
                             </div>
@@ -73,7 +72,7 @@
 
                         <div class="col-xl-6">
                             <label for="document">Tipo de documento</label>
-                            <select class="form-select" name="document" required>
+                            <select class="form-select" name="document" id="document" required>
                                 <option value="" disabled selected>Tipo de documento</option>
                                 <option value="1">C.C</option>
                                 <option value="2">Tarjeta de identidad</option>
@@ -82,9 +81,8 @@
                         </div>
 
                         <div class="col-xl-6">
-                            <label for="identityNumber">Número de documento</label>
-                            <input type="text" class="form-control" id="identityNumber" placeholder="100000009"
-                                pattern="[0-9]{6,20}" autocomplete="off" required>
+                            <label for="identifyNumber">Número de documento</label>
+                            <input type="text" class="form-control" id="identifyNumber" name="identifyNumber" placeholder="100000009" pattern="[0-9]{6,20}" autocomplete="off" required>
 
                             <div class="invalid-feedback">
                                 <p class="">Recuerde no utilizar letras [a-z] ni simbolos o espacios.</p>
@@ -100,11 +98,16 @@
                                 <p class="">Debe aceptar los Terminos y condiciones para poder continuar.</p>
                             </div>
                         </div>
-
+                        
                         <div class="text-center">
-                            <button class="btn btn-success" type="submit"> Enviar </button>
+                            <button class="btn btn-success" type="submit" onclick="btnSubmit()" name="send"> Enviar </button>
                         </div>
+
+                        <div id="resultado">
+
                     </div>
+                    </div>
+
                 </form>
             </div>
             <!-- End Form data-->
@@ -112,25 +115,23 @@
 
     </main>
 
+
     <footer class="bg-dark">
-        <p class="m-0 text-center text-white">Desarrollado con <i class="far fa-heart text-danger"></i> por <a
-                href="">Shelcy Calderón</a></p>
+        <p class="m-0 text-center text-white">Desarrollado con <i class="far fa-heart text-danger"></i> por <a href="">Shelcy Calderón</a></p>
     </footer>
 
     <!-- Bootstrap JavaScript Bundle with Popper -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+    <script src="archivo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <script>
-        (function () {
+        (function() {
             'use strict'
             var forms = document.querySelectorAll('.needs-validation')
 
             Array.prototype.slice.call(forms)
-                .forEach(function (form) {
-                    form.addEventListener('submit', function (event) {
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
                         if (!form.checkValidity()) {
                             event.preventDefault()
                             event.stopPropagation()
@@ -141,6 +142,15 @@
                 })
         })()
     </script>
+    
+    <!-- API -->
+    <!-- AIzaSyB3p3Y3dd-QbGZSNjOllKfbTXGxPfV1qew -->
+     
+    <!-- <?php
+        include('register.php');
+    ?> 
+     -->
+
 </body>
 
 </html>
