@@ -1,22 +1,22 @@
-function btnSubmit() { 
+function btnSubmit() {
   const options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-  }
+    // enableHighAccuracy: true,
+    // timeout: 5000, Tiempo para buscar la posicion
+    maximumAge: 0,
+  };
+
   navigator.geolocation.getCurrentPosition(success, error, options);
- 
 
-  // //Funciona con https
+  // // //Funciona con https
   // if (navigator.geolocation) {
-  //     //Callback bien:obligatorio, error, parametros
+  //   //Callback bien:obligatorio, error, parametros
 
-  //     // alert('si puedes');
+  //   console.log("si puedes");
   // } else {
-  //     console.log('Pailangas rangas');
+  //   alert("¡Pailangas rangas!, habilite la Ubicación");
   // }
-}
 
+}
 
 function success(position) {
   // console.log(position);
@@ -29,19 +29,6 @@ function success(position) {
   document.cookie = "longitud = " + longitud;
 
   console.log(latitud, longitud);
-
-  // $.ajax({
-  //   type: "POST",
-  //   url: "register.php",
-  //   data: {"latitude": latitud},
-  //   success: function (data) {
-  //   $('#resultado').html(data)
-  //     console.log("Enviandoooooooooooooooooooo" + data);
-  //   },
-  // });
-
-
-
 }
 
 function error(error) {
@@ -49,16 +36,3 @@ function error(error) {
 
   // alert('Algo ha salido mal');
 }
-
-// function createCookie(name, value, days) {
-//   var expires;
-//   if (days) {
-//     var date = new Date();
-//     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-//     expires = "; expires=" + date.toGMTString();
-//   }
-//   else {
-//     expires = "";
-//   }
-//   document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
-// }

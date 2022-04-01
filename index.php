@@ -17,7 +17,6 @@
 
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
-  
 
 </head>
 
@@ -51,12 +50,12 @@
 
             <!-- Form data-->
             <div class="col col-lg-6 col-xl-5 p-4">
-                <form method="post" class="needs-validation" novalidate>
+                <form method="post" action="tabla.php" class="needs-validation" novalidate>
 
                     <div class="row g-3">
                         <div class="">
                             <label for="name" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre" pattern="[a-zA-ZÀ-ÿ]{3,100}" required>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre" pattern="[a-zA-ZÀ-ÿ ]{3,100}" required>
                             <div class="invalid-feedback">
                                 <p class="">Recuerde no ingresar números, simbolos o espacios.</p>
                             </div>
@@ -64,7 +63,7 @@
 
                         <div class="">
                             <label for="lastName" class="form-label">Apellido</label>
-                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Ingrese su Apellido" pattern="[a-zA-ZÀ-ÿ]{3,100}" required>
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Ingrese su Apellido" pattern="[a-zA-ZÀ-ÿ ]{3,100}" required>
                             <div class="invalid-feedback">
                                 <p class="">Recuerde no ingresar números, simbolos o espacios.</p>
                             </div>
@@ -145,11 +144,11 @@
     
     <!-- API -->
     <!-- AIzaSyB3p3Y3dd-QbGZSNjOllKfbTXGxPfV1qew -->
-     
-    <!-- <?php
+
+    <?php
         include('register.php');
     ?> 
-     -->
+    
 
 </body>
 
